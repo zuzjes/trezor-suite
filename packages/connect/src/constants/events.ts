@@ -1,0 +1,7 @@
+export const CORE_EVENT = 'CORE_EVENT';
+export const UI_EVENT = 'UI_EVENT';
+export const UI_RESPONSE = 'UI_RESPONSE';
+export const DEVICE_EVENT = 'DEVICE_EVENT';
+export const TRANSPORT_EVENT = 'TRANSPORT_EVENT';
+export const RESPONSE_EVENT = 'RESPONSE_EVENT';
+export const BLOCKCHAIN_EVENT = 'BLOCKCHAIN_EVENT';
