@@ -1,6 +1,7 @@
 .next
 _old
 build
+lib
 
 
 # Dependency directory
