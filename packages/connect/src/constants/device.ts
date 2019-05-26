@@ -12,11 +12,11 @@ export const USED_ELSEWHERE = '@trezor-connect/device/used_elsewhere';
 export const LOADING = '@trezor-connect/device/loading';
 
 // trezor-link events in protobuf format
-export const BUTTON = '@trezor-connect/button';
-export const PIN = '@trezor-connect/pin';
-export const PASSPHRASE = '@trezor-connect/passphrase';
-export const PASSPHRASE_ON_DEVICE = '@trezor-connect/passphrase_on_device';
-export const WORD = '@trezor-connect/word';
+export const BUTTON = 'button';
+export const PIN = 'pin';
+export const PASSPHRASE = 'passphrase';
+export const PASSPHRASE_ON_DEVICE = 'passphrase_on_device';
+export const WORD = 'word';
 
 // custom
 export const WAIT_FOR_SELECTION = '@trezor-connect/device/wait_for_selection';

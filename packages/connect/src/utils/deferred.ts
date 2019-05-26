@@ -7,8 +7,8 @@ import { CommonTypes, Device } from '../types';
 //     run: Function,
 // };
 
-
-export const createDeferred = <T>(arg?: (() => Promise<void>) | string | undefined, device?: Device.TrezorDevice): CommonTypes.Deferred<T> => {
+type DfdArg = (() => Promise<void>) | string | undefined | null;
+export const createDeferred = <T>(arg?: DfdArg, device?: Device.TrezorDevice): CommonTypes.Deferred<T> => {
     let localResolve: (value?: T | PromiseLike<T>) => void = () => {};
     let localReject: (reason?: any) => void = () => {};
     let id: string | undefined;

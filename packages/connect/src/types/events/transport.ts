@@ -1,11 +1,7 @@
 import { START, ERROR } from '../../constants/transport';
+import { Assets } from '../assets';
 
 export declare namespace TransportEvent {
-
-    // TODO: move it elsewere
-    type BridgeInfo = {
-        bridgeInfoTODO: any;
-    }
 
     type Start = {
         type: typeof START;
@@ -13,7 +9,7 @@ export declare namespace TransportEvent {
             type: string;
             version: string;
             outdated: boolean;
-            bridge: BridgeInfo,
+            bridge: Assets.BridgeRelease,
         }
     }
     
@@ -21,7 +17,7 @@ export declare namespace TransportEvent {
         type: typeof ERROR;
         payload: {
             error: string;
-            bridge: BridgeInfo;
+            bridge: Assets.BridgeRelease;
         }
     }
     

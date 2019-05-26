@@ -44,7 +44,7 @@ export declare namespace Device {
     }
     
     export type Status = 'available' | 'occupied' | 'used';
-    export type Mode = 'normal' | 'bootloader' | 'initialize' | 'seedless';
+    export type Mode = 'normal' | 'bootloader' | 'initialize' | 'seedless' | 'unknown';
     export type FirmwareStatus = 'valid' | 'outdated' | 'required' | 'unknown' | 'none';
     
     export type TrezorDevice = {

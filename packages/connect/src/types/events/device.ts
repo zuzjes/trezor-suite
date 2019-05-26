@@ -4,7 +4,7 @@ import { Device } from '../trezor/device';
 export declare namespace DeviceEvent {
     
     type DefaultEvent = {
-        type: typeof DEVICE.CONNECT,
+        type: typeof DEVICE.CONNECT | typeof DEVICE.CONNECT_UNACQUIRED | typeof DEVICE.DISCONNECT | typeof DEVICE.CHANGED,
         payload: Device.TrezorDevice,
     };
     
