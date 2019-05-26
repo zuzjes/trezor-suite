@@ -45,7 +45,7 @@ export const messagePromises: CommonTypes.Deferred<any>[] = [];
 
 export namespace TrezorConnect {
 
-    export function init(settings: CommonTypes.ApiSettings): Promise<void> {
+    export function init(settings: CommonTypes.Settings): Promise<void> {
         return factory.init(settings);
     }
 
@@ -104,6 +104,8 @@ let factory: Factory = {
     }
 }
 
-export default (f: Factory) => {
+export default TrezorConnect;
+
+export const setFactory = (f: Factory) => {
     factory = f;
 }
