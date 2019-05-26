@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "lib": ["dom", "es2015"],
+        "outDir": "./lib",
+        "strict": true,
+        "declaration": true,
+        "noImplicitAny": false,
+        "preserveSymlinks": true, // ts-node: "Unable to require `.d.ts` file." (https://github.com/TypeStrong/ts-node/issues/797)
+        "removeComments": true,
+        "types": ["node", "chrome", "w3c-web-usb", "sharedworker"],
+    },
+    "include": [
+        "./src",
+    ],
+    "exclude": ["node_modules", "**/_old/**/*.*"]
+}

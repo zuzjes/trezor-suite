@@ -1,0 +1,27 @@
+{
+    "name": "@trezor/connect-core",
+    "version": "8.0.0",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "scripts": {
+        "build:lib": "tsc",
+        "build:lib2": "tsc --listFiles",
+        "factory": "ts-node ./src/factory1.ts"
+    },
+    "browser": {
+        "node-fetch": "./lib/utils/fetch.js"
+    },
+    "dependencies": {
+        "@trezor/connect": "8.0.0",
+        "bowser": "^1.9.3",
+        "node-fetch": "^2.3.0",
+        "parse-uri": "^1.0.0",
+        "semver-compare": "^1.0.0",
+        "trezor-link": "1.6.1"
+    },
+    "devDependencies": {
+        "@types/sharedworker": "^0.0.28",
+        "@types/w3c-web-usb": "^1.0.3",
+        "ts-node": "^8.1.0",
+        "webpack": "^4.29.0"
+    }
+}
