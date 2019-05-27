@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import { SCREEN_SIZE } from '../../config/variables';
 import icons from '../../config/icons';
-import colors from '../../config/colors';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
 
 const Wrapper = styled.header`
     width: 100%;
@@ -38,7 +40,7 @@ const Left = styled.div`
 const MenuToggler = styled.div`
     display: none;
     white-space: nowrap;
-    color: ${colors.WHITE};
+    color: ${colors.MAIN};
     align-self: center;
     align-items: center;
     cursor: pointer;
@@ -73,7 +75,7 @@ const Logo = styled.div`
     }
 
     svg {
-        fill: ${colors.WHITE};
+        fill: ${colors.MAIN};
         height: 28px;
     }
 
@@ -117,7 +119,7 @@ const Projects = styled.div`
 `;
 
 const Divider = styled.div`
-    border-right: 1px solid ${colors.HEADER_DIVIDER};
+    border-right: 1px solid ${colors.TEXT};
     height: 100%;
     margin: 0 24px;
 
@@ -127,14 +129,14 @@ const Divider = styled.div`
 `;
 
 const A = styled.a`
-    color: ${colors.WHITE};
+    color: ${colors.MAIN};
     margin-left: 24px;
     transition: all 0.1s ease-in;
     white-space: nowrap;
     text-decoration: none;
 
     &:visited {
-        color: ${colors.WHITE};
+        color: ${colors.MAIN};
         margin-left: 24px;
     }
 
@@ -222,12 +224,12 @@ const Header = ({
                         <MenuToggler onClick={toggleSidebar}>
                             {sidebarOpened ? (
                                 <>
-                                    <Icon size={12} color={colors.WHITE} icon={icons.CLOSE} />
+                                    <Icon size={12} color={colors.MAIN} icon={icons.CLOSE} />
                                     <TogglerText>{togglerCloseText}</TogglerText>
                                 </>
                             ) : (
                                 <>
-                                    <Icon color={colors.WHITE} size={14} icon={icons.MENU} />
+                                    <Icon color={colors.MAIN} size={14} icon={icons.MENU} />
                                     <TogglerText>{togglerOpenText}</TogglerText>
                                 </>
                             )}

@@ -5,16 +5,18 @@ import Icon from '../Icon';
 
 import icons from '../../config/icons';
 import { Omit, IconShape } from '../../support/types';
-import colors from '../../config/colors';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
 
 const PulseAnimation = keyframes`
     0% {
-        background-color: ${colors.GREEN_PRIMARY};
+        background-color: ${colors.SUCCESS_PRIMARY};
         transform: scale(0);
         opacity: 0;
     }
     25% {
-        background-color: ${colors.GREEN_PRIMARY};
+        background-color: ${colors.SUCCESS_PRIMARY};
         transform: scale(0.75);
         opacity: 0.2;
     }
@@ -53,7 +55,7 @@ const Wrapper = styled.div`
 
 const ContentWrapper = styled.div`
     max-width: 300px;
-    color: ${colors.GREEN_PRIMARY};
+    color: ${colors.SUCCESS_PRIMARY};
     text-align: center;
     margin: 5px;
 `;
@@ -75,7 +77,7 @@ const Prompt = ({ model, size, children }: Props) => {
         <Wrapper>
             <ImgWrapper size={size}>
                 <Pulse />
-                <Icon icon={modelToIcon(model)} size={size} color={colors.GREEN_PRIMARY} />
+                <Icon icon={modelToIcon(model)} size={size} color={colors.SUCCESS_PRIMARY} />
             </ImgWrapper>
             <ContentWrapper>{children}</ContentWrapper>
         </Wrapper>

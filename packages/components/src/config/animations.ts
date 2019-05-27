@@ -1,5 +1,7 @@
 import { keyframes } from 'styled-components';
-import colors from './colors';
+import { getColors } from 'config/colors';
+
+const colors = getColors();
 
 export const ROTATE_180_UP = keyframes`
     from { 
@@ -34,18 +36,18 @@ export const DASH = keyframes`
     }
 `;
 
-export const GREEN_COLOR = keyframes`
+export const SUCCESS_COLOR = keyframes`
     100%, 0% {
-        stroke: ${colors.GREEN_PRIMARY};
+        stroke: ${colors.SUCCESS_PRIMARY};
     }
     40% {
-        stroke: ${colors.GREEN_PRIMARY};
+        stroke: ${colors.SUCCESS_PRIMARY};
     }
     66% {
-        stroke: ${colors.GREEN_SECONDARY};
+        stroke: ${colors.SUCCESS_SECONDARY};
     }
     80%, 90% {
-        stroke: ${colors.GREEN_TERTIARY};
+        stroke: ${colors.SUCCESS_SECONDARY};
     }
 `;
 

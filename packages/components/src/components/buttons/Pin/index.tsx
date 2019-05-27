@@ -1,11 +1,14 @@
 import styled from 'styled-components';
-import colors from '../../../config/colors';
+import { getColors } from '../../../config/colors';
+
+const colors = getColors();
+
 
 const ButtonPin = styled.button`
     width: 80px;
     height: 80px;
     border: 1px solid ${colors.DIVIDER};
-    background: ${colors.WHITE};
+    background: ${colors.MAIN};
     transition: all 0.3s;
     position: relative;
     cursor: pointer;
@@ -16,7 +19,7 @@ const ButtonPin = styled.button`
 
     &:hover {
         color: ${colors.TEXT_PRIMARY};
-        background-color: ${colors.WHITE};
+        background-color: ${colors.MAIN};
         border-color: ${colors.TEXT_SECONDARY};
     }
 

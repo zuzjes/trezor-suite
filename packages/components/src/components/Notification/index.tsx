@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { FONT_SIZE, FONT_WEIGHT } from '../../config/variables';
-import { getPrimaryColor, getNotificationBgColor } from '../../utils/colors';
+import { getTextColor, getNotificationBgColor } from '../../utils/colors';
 import { getStateIcon } from '../../utils/icons';
 import Icon from '../Icon';
 import Button from '../buttons/Button';
@@ -14,7 +14,7 @@ const Wrapper = styled.div<WrapperProps>`
     position: relative;
     display: flex;
     justify-content: center;
-    color: ${props => getPrimaryColor(props.variant)};
+    color: ${props => getTextColor(props.variant)};
     background: ${props => getNotificationBgColor(props.variant)};
 `;
 
@@ -125,7 +125,7 @@ const Notification = ({
 }: Props) => {
     const closeFunc = typeof close === 'function' ? close : () => {}; // TODO: add default close action
     const stateIcon = getStateIcon(variant);
-    const stateColor = getPrimaryColor(variant) || undefined;
+    const stateColor = getTextColor(variant) || undefined;
     if (!stateIcon || !stateColor) return null;
 
     return (

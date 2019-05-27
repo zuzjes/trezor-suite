@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 import Tippy, { TippyProps } from '@tippy.js/react';
 
 import Link from '../Link';
-import colors from '../../config/colors';
 import { FONT_SIZE } from '../../config/variables';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
 
 const Content = styled.div<{ maxWidth?: number }>`
     max-width: ${props => `${props.maxWidth}px` || 'auto'};
@@ -14,7 +16,7 @@ const Content = styled.div<{ maxWidth?: number }>`
 const ContentWrapper = styled.div`
     display: block;
     background: ${colors.TOOLTIP_BACKGROUND};
-    color: white;
+    color: MAIN;
     border-radius: 3px;
     font-size: ${FONT_SIZE.SMALL};
     padding: 8px 0px;
@@ -34,7 +36,7 @@ const StyledLink = styled(Link)`
     &:visited,
     &:active,
     &:hover {
-        color: ${colors.WHITE};
+        color: ${colors.MAIN};
         text-decoration: none;
     }
 `;

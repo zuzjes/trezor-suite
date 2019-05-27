@@ -5,7 +5,10 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, number, text, boolean } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
-import colors from '../../config/colors';
+import { getColors } from '../../config/colors';
+import storybookStyle from '../../config/storybook';
+
+const colors = getColors();
 
 storiesOf('Other', module)
     .addDecorator(
@@ -13,18 +16,7 @@ storiesOf('Other', module)
             header: false,
             inline: true,
             maxPropsIntoLine: 1,
-            styles: {
-                infoStory: {
-                    background: colors.LANDING,
-                    borderBottom: `1px solid ${colors.DIVIDER}`,
-                    padding: '30px',
-                    margin: '-8px',
-                },
-                infoBody: {
-                    border: 'none',
-                    padding: '15px',
-                },
-            },
+            styles: storybookStyle,
         })
     )
     .addDecorator(withKnobs)

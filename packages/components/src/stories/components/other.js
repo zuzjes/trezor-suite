@@ -14,9 +14,12 @@ import { H1 } from '../../components/Heading';
 import Prompt from '../../components/Prompt';
 import Header from '../../components/Header';
 
-import colors from '../../config/colors';
 import icons from '../../config/icons';
 import { FONT_SIZE } from '../../config/variables';
+import { getColors } from '../../config/colors';
+import storybookStyle from '../../config/storybook';
+
+const colors = getColors();
 
 const coins = [
     'ada',
@@ -68,7 +71,7 @@ const BtnLink = styled.button`
     font-size: 1rem;
     color: ${colors.TEXT_SECONDARY};
     vertical-align: middle;
-    background: ${colors.LANDING};
+    background: ${colors.BACKGROUND};
     padding: 0.5rem;
     border: none;
     border-radius: 5px;
@@ -114,18 +117,7 @@ storiesOf('Other', module)
             header: false,
             inline: true,
             maxPropsIntoLine: 1,
-            styles: {
-                infoStory: {
-                    background: colors.LANDING,
-                    borderBottom: `1px solid ${colors.DIVIDER}`,
-                    padding: '30px',
-                    margin: '-8px',
-                },
-                infoBody: {
-                    border: 'none',
-                    padding: '15px',
-                },
-            },
+            styles: storybookStyle,
         })
     )
     .addDecorator(withKnobs)

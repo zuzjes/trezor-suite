@@ -13,7 +13,10 @@ import Input from '../../components/inputs/Input';
 import PinInput from '../../components/inputs/Pin';
 import TextArea from '../../components/Textarea';
 
-import colors from '../../config/colors';
+import { getColors } from '../../config/colors';
+import storybookStyle from '../../config/storybook';
+
+const colors = getColors();
 
 const Wrapper = styled.div`
     padding: 1.6rem;
@@ -613,18 +616,7 @@ storiesOf('Form', module)
             header: false,
             inline: true,
             maxPropsIntoLine: 1,
-            styles: {
-                infoStory: {
-                    background: colors.LANDING,
-                    borderBottom: `1px solid ${colors.DIVIDER}`,
-                    padding: '30px',
-                    margin: '-8px',
-                },
-                infoBody: {
-                    border: 'none',
-                    padding: '15px',
-                },
-            },
+            styles: storybookStyle,
             excludedPropTypes: ['children'],
         })
     )

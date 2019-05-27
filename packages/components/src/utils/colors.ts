@@ -1,4 +1,6 @@
-import colors from '../config/colors';
+import { getColors } from '../config/colors';
+
+const colors = getColors();
 
 type Props = 'info' | 'error' | 'warning' | 'success';
 
@@ -16,6 +18,28 @@ const getPrimaryColor = (type?: Props) => {
             break;
         case 'success':
             color = colors.SUCCESS_PRIMARY;
+            break;
+        default:
+            color = null;
+    }
+
+    return color;
+};
+
+const getTextColor = (type?: Props) => {
+    let color;
+    switch (type) {
+        case 'info':
+            color = colors.INFO_TEXT;
+            break;
+        case 'error':
+            color = colors.ERROR_TEXT;
+            break;
+        case 'warning':
+            color = colors.WARNING_TEXT;
+            break;
+        case 'success':
+            color = colors.SUCCESS_TEXT;
             break;
         default:
             color = null;
@@ -50,16 +74,16 @@ const getNotificationBgColor = (type?: Props) => {
     let color;
     switch (type) {
         case 'info':
-            color = colors.INFO_LIGHT;
+            color = colors.INFO_BG;
             break;
         case 'error':
-            color = colors.ERROR_LIGHT;
+            color = colors.ERROR_BG;
             break;
         case 'warning':
-            color = colors.WARNING_LIGHT;
+            color = colors.WARNING_BG;
             break;
         case 'success':
-            color = colors.SUCCESS_LIGHT;
+            color = colors.SUCCESS_BG;
             break;
         default:
             color = null;
@@ -68,4 +92,4 @@ const getNotificationBgColor = (type?: Props) => {
     return color;
 };
 
-export { getPrimaryColor, getSecondaryColor, getNotificationBgColor };
+export { getPrimaryColor, getTextColor, getSecondaryColor, getNotificationBgColor };

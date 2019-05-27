@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactSwitch, { ReactSwitchProps } from 'react-switch';
-import colors from '../../config/colors';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
 
 interface Props extends ReactSwitchProps {
     onChange: (checked: boolean) => any;
@@ -48,7 +50,7 @@ class Switch extends Component<Props, StateProps> {
                 checked={this.state.checked}
                 disabled={disabled}
                 onChange={this.handleChange}
-                onColor={colors.GREEN_PRIMARY}
+                onColor={colors.SUCCESS_PRIMARY}
                 {...smallProps}
                 {...rest}
             />

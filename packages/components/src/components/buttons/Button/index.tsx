@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 
 import { FONT_SIZE, FONT_WEIGHT, TRANSITION } from '../../../config/variables';
 import Icon from '../../Icon';
-import { getPrimaryColor, getSecondaryColor } from '../../../utils/colors';
-import colors from '../../../config/colors';
+import { getPrimaryColor, getTextColor, getSecondaryColor } from '../../../utils/colors';
 import { SPIN } from '../../../config/animations';
 import { IconShape } from '../../../support/types';
+import { getColors } from '../../../config/colors';
+
+const colors = getColors();
 
 interface FluidSpinnerProps {
     size: number;
@@ -56,7 +58,7 @@ const Wrapper = styled.button<Props>`
     cursor: pointer;
     outline: none;
     background: ${props => getPrimaryColor(props.variant)};
-    color: ${colors.WHITE};
+    color: ${colors.TEXT_PRIMARY};
     border: 1px solid ${props => getPrimaryColor(props.variant)};
     transition: ${TRANSITION.HOVER};
 
@@ -85,7 +87,6 @@ const Wrapper = styled.button<Props>`
     ${props =>
         props.isInverse &&
         !props.isDisabled &&
-        !props.isLoading &&
         css`
             background: transparent;
             color: ${getPrimaryColor(props.variant)};
@@ -93,16 +94,16 @@ const Wrapper = styled.button<Props>`
             &:hover,
             &:active {
                 background: ${getPrimaryColor(props.variant)};
-                color: ${colors.WHITE};
+                color: ${getTextColor(props.variant)};
 
                 &:before,
                 &:after {
-                    background: ${colors.WHITE};
+                    background: ${colors.MAIN};
                 }
 
                 svg {
                     path {
-                        fill: ${colors.WHITE};
+                        fill: ${getTextColor(props.variant)};
                     }
                 }
             }
@@ -117,11 +118,11 @@ const Wrapper = styled.button<Props>`
         css`
             pointer-events: none;
             color: ${colors.TEXT_SECONDARY};
-            background: ${colors.GRAY_LIGHT};
+            background: ${colors.BORDER};
             border: 1px solid ${colors.DIVIDER};
 
             &:focus {
-                background: ${colors.GRAY_LIGHT};
+                background: ${colors.BORDER};
             }
 
             svg {
@@ -134,7 +135,7 @@ const Wrapper = styled.button<Props>`
     ${props =>
         props.isWhite &&
         css`
-            background: ${colors.WHITE};
+            background: ${colors.MAIN};
             color: ${colors.TEXT_SECONDARY};
             border: 1px solid ${colors.DIVIDER};
 
@@ -248,7 +249,7 @@ const Button = ({
                     <Icon
                         icon={icon}
                         size={14}
-                        color={isInverse ? getPrimaryColor(variant) || colors.WHITE : colors.WHITE}
+                        color={isInverse ? getPrimaryColor(variant) || colors.MAIN : colors.TEXT_PRIMARY}
                     />
                 </IconWrapper>
             )}

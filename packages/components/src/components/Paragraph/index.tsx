@@ -3,7 +3,9 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { FONT_SIZE, LINE_HEIGHT } from '../../config/variables';
-import colors from '../../config/colors';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
 
 const P_SIZES: { [key: string]: string } = {
     small: FONT_SIZE.SMALL,

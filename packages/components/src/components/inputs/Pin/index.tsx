@@ -4,8 +4,10 @@ import styled from 'styled-components';
 
 import { FONT_SIZE, FONT_WEIGHT } from '../../../config/variables';
 import Icon from '../../Icon';
-import colors from '../../../config/colors';
 import icons from '../../../config/icons';
+import { getColors } from '../../../config/colors';
+
+const colors = getColors();
 
 const Wrapper = styled.div`
     position: relative;

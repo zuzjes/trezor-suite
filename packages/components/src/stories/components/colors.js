@@ -1,8 +1,10 @@
 import React from 'react';
-import colors from '../../config/colors';
 import { storiesOf } from '@storybook/react';
 import styled from 'styled-components';
 import { H1, H2 } from '../../components/Heading';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
 
 const Section = styled.div`
     padding: 1.6rem;
@@ -141,8 +143,8 @@ storiesOf('Other', module).add('Colors', () => (
                     <ColorBox color={colors.SUCCESS_SECONDARY}>{colors.SUCCESS_SECONDARY}</ColorBox>
                 </Color>
                 <Color>
-                    <Title>SUCCESS_LIGHT</Title>
-                    <ColorBox color={colors.SUCCESS_LIGHT}>{colors.SUCCESS_LIGHT}</ColorBox>
+                    <Title>SUCCESS_BG</Title>
+                    <ColorBox color={colors.SUCCESS_BG}>{colors.SUCCESS_BG}</ColorBox>
                 </Color>
                 <Color>
                     <Title>INFO_PRIMARY</Title>
@@ -153,8 +155,8 @@ storiesOf('Other', module).add('Colors', () => (
                     <ColorBox color={colors.INFO_SECONDARY}>{colors.INFO_SECONDARY}</ColorBox>
                 </Color>
                 <Color>
-                    <Title>INFO_LIGHT</Title>
-                    <ColorBox color={colors.INFO_LIGHT}>{colors.INFO_LIGHT}</ColorBox>
+                    <Title>INFO_BG</Title>
+                    <ColorBox color={colors.INFO_BG}>{colors.INFO_BG}</ColorBox>
                 </Color>
                 <Color>
                     <Title>WARNING_PRIMARY</Title>
@@ -165,8 +167,8 @@ storiesOf('Other', module).add('Colors', () => (
                     <ColorBox color={colors.WARNING_SECONDARY}>{colors.WARNING_SECONDARY}</ColorBox>
                 </Color>
                 <Color>
-                    <Title>WARNING_LIGHT</Title>
-                    <ColorBox color={colors.WARNING_LIGHT}>{colors.WARNING_LIGHT}</ColorBox>
+                    <Title>WARNING_BG</Title>
+                    <ColorBox color={colors.WARNING_BG}>{colors.WARNING_BG}</ColorBox>
                 </Color>
                 <Color>
                     <Title>ERROR_PRIMARY</Title>
@@ -177,8 +179,8 @@ storiesOf('Other', module).add('Colors', () => (
                     <ColorBox color={colors.ERROR_SECONDARY}>{colors.ERROR_SECONDARY}</ColorBox>
                 </Color>
                 <Color>
-                    <Title>ERROR_LIGHT</Title>
-                    <ColorBox color={colors.ERROR_LIGHT}>{colors.ERROR_LIGHT}</ColorBox>
+                    <Title>ERROR_BG</Title>
+                    <ColorBox color={colors.ERROR_BG}>{colors.ERROR_BG}</ColorBox>
                 </Color>
             </Column>
         </Wrapper>

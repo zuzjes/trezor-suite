@@ -2,9 +2,11 @@ import styled, { keyframes } from 'styled-components';
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import colors from '../../config/colors';
 import icons from '../../config/icons';
 import { Omit } from '../../support/types';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
 
 // TODO: make animation of icons better
 const rotate180up = keyframes`

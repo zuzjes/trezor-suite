@@ -4,9 +4,11 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { FONT_SIZE } from '../../config/variables';
 import Icon from '../Icon';
-import colors from '../../config/colors';
 import icons from '../../config/icons';
 import { Omit } from '../../support/types';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
 
 const Wrapper = styled.div`
     display: flex;
@@ -25,9 +27,9 @@ const IconWrapper = styled.div<IconWrapperProps>`
     border-radius: 2px;
     justify-content: center;
     align-items: center;
-    color: ${props => (props.isChecked ? colors.WHITE : colors.GREEN_PRIMARY)};
-    background: ${props => (props.isChecked ? colors.GREEN_PRIMARY : colors.WHITE)};
-    border: 1px solid ${props => (props.isChecked ? colors.GREEN_PRIMARY : colors.DIVIDER)};
+    color: ${props => (props.isChecked ? colors.MAIN : colors.SUCCESS_PRIMARY)};
+    background: ${props => (props.isChecked ? colors.SUCCESS_PRIMARY : colors.MAIN)};
+    border: 1px solid ${props => (props.isChecked ? colors.SUCCESS_PRIMARY : colors.DIVIDER)};
     width: 24px;
     height: 24px;
 
@@ -36,9 +38,9 @@ const IconWrapper = styled.div<IconWrapperProps>`
         ${props =>
             !props.isChecked &&
             css`
-                border: 1px solid ${colors.GREEN_PRIMARY};
+                border: 1px solid ${colors.SUCCESS_PRIMARY};
             `}
-        background: ${props => (props.isChecked ? colors.GREEN_PRIMARY : colors.WHITE)};
+        background: ${props => (props.isChecked ? colors.SUCCESS_PRIMARY : colors.MAIN)};
     }
 `;
 
@@ -46,7 +48,7 @@ const Label = styled.div<IconWrapperProps>`
     display: flex;
     padding-left: 10px;
     justify-content: center;
-    ${colors.TEXT_SECONDARY};
+    color: ${colors.TEXT_SECONDARY};
     font-size: ${FONT_SIZE.BASE};
 
     &:hover,
@@ -88,9 +90,9 @@ class Checkbox extends PureComponent<Props> {
                 <IconWrapper isChecked={isChecked}>
                     {isChecked && (
                         <Icon
-                            hoverColor={colors.WHITE}
+                            hoverColor={colors.MAIN}
                             size={10}
-                            color={isChecked ? colors.WHITE : colors.GREEN_PRIMARY}
+                            color={isChecked ? colors.MAIN : colors.SUCCESS_PRIMARY}
                             icon={icons.SUCCESS}
                         />
                     )}

@@ -12,7 +12,9 @@ import {
 import { getStateIcon } from '../../../utils/icons';
 import { getPrimaryColor } from '../../../utils/colors';
 import Icon from '../../Icon';
-import colors from '../../../config/colors';
+import { getColors } from '../../../config/colors';
+
+const colors = getColors();
 
 const Wrapper = styled.div`
     width: 100%;
@@ -29,7 +31,7 @@ const InputIconWrapper = styled.div`
     flex: 1;
     position: relative;
     display: inline-block;
-    background: white;
+    background: MAIN;
 `;
 
 const TopLabel = styled.span`
@@ -60,17 +62,17 @@ const StyledInput = styled.input<InputProps>`
 
     border: 1px solid ${props => props.border};
 
-    background-color: ${colors.WHITE};
+    background-color: ${colors.MAIN};
     transition: ${TRANSITION.HOVER};
 
     &:disabled {
         pointer-events: none;
-        background: ${colors.GRAY_LIGHT};
+        background: ${colors.BORDER};
         color: ${colors.TEXT_SECONDARY};
     }
 
     &:read-only  {
-        background: ${colors.GRAY_LIGHT};
+        background: ${colors.BORDER};
         color: ${colors.TEXT_SECONDARY};
     }
 
@@ -128,7 +130,7 @@ const TooltipAction = styled.div`
     position: absolute;
     top: 45px;
     background: black;
-    color: ${colors.WHITE};
+    color: ${colors.MAIN};
     border-radius: 5px;
     line-height: ${LINE_HEIGHT.TREZOR_ACTION};
     z-index: 10002;

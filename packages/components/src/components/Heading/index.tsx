@@ -1,7 +1,10 @@
 import styled, { css } from 'styled-components';
 
 import { FONT_SIZE } from '../../config/variables';
-import colors from '../../config/colors';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
+
 
 interface Props {
     textAlign?: 'left' | 'center' | 'right' | 'justify';

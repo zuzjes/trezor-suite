@@ -11,7 +11,10 @@ import Link from '../../components/Link';
 import P from '../../components/Paragraph';
 import Tooltip from '../../components/Tooltip';
 
-import colors from '../../config/colors';
+import { getColors } from '../../config/colors';
+import storybookStyle from '../../config/storybook';
+
+const colors = getColors();
 
 const Center = styled.div`
     display: flex;
@@ -36,7 +39,7 @@ const BtnLink = styled.button`
     font-size: 1rem;
     color: ${colors.TEXT_SECONDARY};
     vertical-align: middle;
-    background: ${colors.LANDING};
+    background: ${colors.BACKGROUND};
     padding: 0.5rem;
     border: none;
     border-radius: 5px;
@@ -171,18 +174,7 @@ storiesOf('Typography', module)
             header: false,
             inline: true,
             maxPropsIntoLine: 1,
-            styles: {
-                infoStory: {
-                    background: colors.LANDING,
-                    borderBottom: `1px solid ${colors.DIVIDER}`,
-                    padding: '30px',
-                    margin: '-8px',
-                },
-                infoBody: {
-                    border: 'none',
-                    padding: '15px',
-                },
-            },
+            styles: storybookStyle,
             excludedPropTypes: ['children'],
         })
     )

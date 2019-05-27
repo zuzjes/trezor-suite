@@ -2,7 +2,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import colors from '../../config/colors';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
 
 const ModalContainer = styled.div`
     position: fixed;
@@ -23,7 +25,7 @@ const ModalWindow = styled.div`
     margin: auto;
     position: relative;
     border-radius: 4px;
-    background-color: ${colors.WHITE};
+    background-color: ${colors.MAIN};
     text-align: center;
 `;
 

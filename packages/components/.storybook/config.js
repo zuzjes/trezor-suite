@@ -1,8 +1,9 @@
 import { addDecorator, configure } from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
-import { withInfo } from '@storybook/addon-info';
 import { configureViewport } from '@storybook/addon-viewport';
-import colors from '../src/config/colors';
+import { getColors } from '../src/config/colors';
+
+const colors = getColors();
 
 addDecorator(
     withOptions({
@@ -10,14 +11,21 @@ addDecorator(
         url: '#',
         addonPanelInRight: true,
         theme: {
-            mainBackground: colors.BACKGROUND,
-            mainBorder: `1px solid ${colors.DIVIDER}`,
-            mainFill: colors.WHITE,
-            barFill: colors.GRAY_LIGHT,
+            mainBackground: colors.BODY,
+            mainBorder: `1px solid ${colors.BORDER}`,
+            mainBorderColor: colors.BORDER,
+            mainBorderRadius: '3px',
+            mainFill: colors.MAIN,
+            barFill: colors.MAIN,
+            inputFill: '#ffffff',
             mainTextFace: 'Roboto',
             mainTextColor: colors.TEXT_PRIMARY,
             layoutMargin: 10,
             mainTextSize: 14,
+            successColor: colors.SUCCESS_PRIMARY,
+            failColor: colors.ERROR_PRIMARY,
+            warnColor: colors.WARNING_PRIMARY,
+            overlayBackground: colors.BACKGROUND,
             treeMenuHeader: {
                 color: colors.TEXT_PRIMARY,
                 lineHeight: '1.4rem',
@@ -29,7 +37,7 @@ addDecorator(
                 marginLeft: 0,
             },
             activeMenuLink: {
-                color: colors.GREEN_PRIMARY,
+                color: colors.GREEN,
                 background: 'none',
             },
         },

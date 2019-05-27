@@ -3,23 +3,25 @@ import styled from 'styled-components';
 
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import colors from '../../config/colors';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
 
 const A = styled.a<Props>`
     text-decoration: none;
     cursor: pointer;
-    color: ${props => (props.isGray ? colors.TEXT_SECONDARY : colors.GREEN_PRIMARY)};
+    color: ${props => (props.isGray ? colors.TEXT_SECONDARY : colors.SUCCESS_PRIMARY)};
 
     &:visited,
     &:active,
     &:hover {
         text-decoration: underline;
-        color: ${props => (props.isGray ? colors.TEXT_SECONDARY : colors.GREEN_PRIMARY)};
+        color: ${props => (props.isGray ? colors.TEXT_SECONDARY : colors.SUCCESS_PRIMARY)};
     }
 `;
 
 const StyledNavLink = styled(NavLink)<Props>`
-    color: ${props => (props.isGray ? colors.TEXT_SECONDARY : colors.GREEN_PRIMARY)};
+    color: ${props => (props.isGray ? colors.TEXT_SECONDARY : colors.SUCCESS_PRIMARY)};
 `;
 
 interface Props {

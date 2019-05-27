@@ -5,8 +5,10 @@ import Textarea from 'react-textarea-autosize';
 
 import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT, LINE_HEIGHT } from '../../config/variables';
 import { getPrimaryColor } from '../../utils/colors';
-import colors from '../../config/colors';
 import { Omit } from '../../support/types';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
 
 const Wrapper = styled.div`
     width: 100%;
@@ -27,7 +29,7 @@ const StyledTextarea = styled(Textarea)<StyledTextareaProps>`
     outline: none;
     font-family: ${FONT_FAMILY.MONOSPACE};
     color: ${colors.TEXT_PRIMARY};
-    background: ${colors.WHITE};
+    background: ${colors.MAIN};
     font-weight: ${FONT_WEIGHT.MEDIUM};
     font-size: ${FONT_SIZE.BASE};
     white-space: pre-wrap; /* css-3 */
@@ -38,18 +40,18 @@ const StyledTextarea = styled(Textarea)<StyledTextareaProps>`
 
     &:focus {
         box-shadow: ${colors.INPUT_FOCUS_SHADOW} 0px 0px 6px 0px;
-        border-color: ${props => props.border || colors.INPUT_FOCUS_BORDER};
+        border-color: ${colors.INPUT_FOCUS_BORDER};
         outline: none;
     }
 
     &:read-only {
-        background: ${colors.GRAY_LIGHT};
+        background: ${colors.BORDER};
         color: ${colors.TEXT_SECONDARY};
     }
 
     &:disabled {
         pointer-events: none;
-        background: ${colors.GRAY_LIGHT};
+        background: ${colors.BORDER};
         color: ${colors.TEXT_SECONDARY};
     }
 
@@ -80,7 +82,7 @@ const TooltipAction = styled.div<{ action: React.ReactNode }>`
     position: absolute;
     background: black;
     bottom: -25px;
-    color: ${colors.WHITE};
+    color: ${colors.MAIN};
     border-radius: 5px;
     line-height: ${LINE_HEIGHT.TREZOR_ACTION};
     z-index: 10002;

@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactAsyncSelect from 'react-select/lib/Async';
 import ReactSelect from 'react-select';
-import colors from '../../config/colors';
+import { getColors } from '../../config/colors';
+
+const colors = getColors();
 
 //TODO: proper type checking with types imported from react-select
 
@@ -23,7 +25,7 @@ const styles = (isSearchable: boolean, withDropdownIndicator: boolean = true) =>
         borderRadius: '2px',
         borderColor: colors.DIVIDER,
         boxShadow: 'none',
-        background: isDisabled ? colors.SELECT_HOVER : colors.WHITE,
+        background: isDisabled ? colors.SELECT_HOVER : colors.MAIN,
         '&:hover': {
             cursor: 'pointer',
             borderColor: colors.DIVIDER,
@@ -50,7 +52,7 @@ const styles = (isSearchable: boolean, withDropdownIndicator: boolean = true) =>
         ...base,
         padding: 0,
         boxShadow: 'none',
-        background: colors.WHITE,
+        background: colors.MAIN,
         borderLeft: `1px solid ${colors.DIVIDER}`,
         borderRight: `1px solid ${colors.DIVIDER}`,
         borderBottom: `1px solid ${colors.DIVIDER}`,
@@ -58,7 +60,7 @@ const styles = (isSearchable: boolean, withDropdownIndicator: boolean = true) =>
     option: (base: Record<string, any>, { isFocused }: { isFocused: boolean }) => ({
         ...base,
         color: colors.TEXT_SECONDARY,
-        background: isFocused ? colors.SELECT_HOVER : colors.WHITE,
+        background: isFocused ? colors.SELECT_HOVER : colors.MAIN,
         borderRadius: 0,
         '&:hover': {
             cursor: 'pointer',
