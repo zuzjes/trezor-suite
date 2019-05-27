@@ -1,6 +1,6 @@
 const colors = {
     BLACK: '#1A1A1A',
-    
+
     GRAY_9: '#333333',
     GRAY_8: '#494949',
     GRAY_7: '#757575',
@@ -12,7 +12,7 @@ const colors = {
     GRAY_1: '#FBFBFB',
 
     WHITE: '#FFFFFF',
-    
+
     GREEN: '#01B757',
     GREEN_DARK: '#00AB51',
     GREEN_LIGHT: '#DFFFEE',
@@ -116,9 +116,9 @@ const theme = {
         ERROR_SECONDARY: colors.RED_DARK,
         ERROR_BG: colors.RED_DARK,
         ERROR_TEXT: colors.RED_LIGHT,
-    }
+    },
 };
 
 export const getColors = () => {
-    return {...colors, ...theme.dark};
-}
+    return { ...colors, ...theme.dark };
+};

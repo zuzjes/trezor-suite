@@ -5,7 +5,6 @@ import { getColors } from '../../config/colors';
 
 const colors = getColors();
 
-
 interface Props {
     textAlign?: 'left' | 'center' | 'right' | 'justify';
 }

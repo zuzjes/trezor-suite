@@ -3,7 +3,6 @@ import { getColors } from '../../../config/colors';
 
 const colors = getColors();
 
-
 const ButtonPin = styled.button`
     width: 80px;
     height: 80px;

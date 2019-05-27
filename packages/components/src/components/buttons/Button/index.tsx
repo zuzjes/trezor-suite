@@ -249,7 +249,11 @@ const Button = ({
                     <Icon
                         icon={icon}
                         size={14}
-                        color={isInverse ? getPrimaryColor(variant) || colors.MAIN : colors.TEXT_PRIMARY}
+                        color={
+                            isInverse
+                                ? getPrimaryColor(variant) || colors.MAIN
+                                : colors.TEXT_PRIMARY
+                        }
                     />
                 </IconWrapper>
             )}

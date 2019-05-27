@@ -14,5 +14,5 @@ export default {
         padding: '15px',
         background: colors.BACKGROUND,
         color: colors.TEXT_PRIMARY,
-    }
+    },
 };

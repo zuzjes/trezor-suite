@@ -1,7 +1,5 @@
 import * as animations from './config/animations';
-import { getColors } from '../src/config/colors';
-
-const colors = getColors();
+import { getColors } from './config/colors';
 
 import icons from './config/icons';
 import * as variables from './config/variables';
@@ -30,6 +28,8 @@ import Loader from './components/Loader';
 import Notification from './components/Notification';
 import Prompt from './components/Prompt';
 import Header from './components/Header';
+
+const colors = getColors();
 
 export {
     colors,
