@@ -42,7 +42,7 @@
 #   PACKAGE_PATH_SUITE_DESKTOP: 'packages/suite-desktop'
 #   PACKAGE_PATH_SUITE_ONBOARDING: 'packages/suite-onboarding'
 
-#   DEV_SERVER_URL: 'https://suite.corp.sldev.cz'
+  DEV_SERVER_URL: 'https://suite.corp.sldev.cz'
 
 # include:
 #   - ci/packages/components.yml
