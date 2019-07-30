@@ -1,56 +1,84 @@
-image: node:lts
+# image: node:lts
 
-cache:
-  key: shared-yarn-cache
-  paths:
-    - node_modules/
+# cache:
+#   key: shared-yarn-cache
+#   paths:
+#     - node_modules/
 
-before_script:
-  - apt-get update
-  - apt-get install -y build-essential
-  - apt-get install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 --assume-yes
-  - yarn install
+# before_script:
+#   - apt-get update
+#   - apt-get install -y build-essential
+#   - apt-get install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 --assume-yes
+#   - yarn install
 
-stages:
-  - install
-  - lint
-  - type check
-  - test
-  - build
-  - deploy
-  - test integration
+# stages:
+#   - install
+#   - lint
+#   - type check
+#   - test
+#   - build
+#   - deploy
+#   - test integration
 
-install:
-  stage: install
-  image: cypress/base:10
-  stage: build
-  only:
-    changes:
-      - packages/components/**/*
-      - .gitlab-ci.yml
-  script:
-    - yarn
-    - $(yarn bin)/cypress cache path
-    - $(yarn bin)/cypress cache list
-    - $(yarn bin)/cypress verify
+# install:
+#   stage: install
+#   image: cypress/base:10
+#   stage: build
+#   only:
+#     changes:
+#       - packages/components/**/*
+#       - .gitlab-ci.yml
+#   script:
+#     - yarn
+#     - $(yarn bin)/cypress cache path
+#     - $(yarn bin)/cypress cache list
+#     - $(yarn bin)/cypress verify
 
-variables:
-  PACKAGE_PATH_COMPONENTS: 'packages/components-storybook'
-  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
-  PACKAGE_PATH_SUITE_WEB: 'packages/suite-web'
-  PACKAGE_PATH_SUITE_NATIVE: 'packages/suite-native'
-  PACKAGE_PATH_SUITE_DESKTOP: 'packages/suite-desktop'
-  PACKAGE_PATH_SUITE_ONBOARDING: 'packages/suite-onboarding'
+# variables:
+#   PACKAGE_PATH_COMPONENTS: 'packages/components-storybook'
+#   CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+#   PACKAGE_PATH_SUITE_WEB: 'packages/suite-web'
+#   PACKAGE_PATH_SUITE_NATIVE: 'packages/suite-native'
+#   PACKAGE_PATH_SUITE_DESKTOP: 'packages/suite-desktop'
+#   PACKAGE_PATH_SUITE_ONBOARDING: 'packages/suite-onboarding'
 
-  DEV_SERVER_URL: 'https://suite.corp.sldev.cz'
+#   DEV_SERVER_URL: 'https://suite.corp.sldev.cz'
 
-include:
-  - ci/packages/components.yml
-  - ci/packages/components-storybook.yml
-  - ci/packages/suite.yml
-  - ci/packages/suite-web.yml
-  - ci/packages/suite-desktop.yml
-  - ci/packages/suite-native.yml
-  - ci/packages/suite-onboarding.yml
-  - ci/packages/blockchain-link.yml
-  - ci/packages/rollout.yml
+# include:
+#   - ci/packages/components.yml
+#   - ci/packages/components-storybook.yml
+#   - ci/packages/suite.yml
+#   - ci/packages/suite-web.yml
+#   - ci/packages/suite-desktop.yml
+#   - ci/packages/suite-native.yml
+#   - ci/packages/suite-onboarding.yml
+#   - ci/packages/blockchain-link.yml
+#   - ci/packages/rollout.yml
+
+suite-web test performance:
+    image: kporras07/lighthouse-ci
+    # stage: test integration
+    only:
+        changes:
+            # - packages/suite/**/*
+            - packages/suite-web/**/*
+            - .gitlab-ci.yml
+            - ci/packages/suite-web.yml
+    variables:
+        TEST_URL: ${DEV_SERVER_URL}/suite-web/${CI_BUILD_REF_NAME}
+    script:
+        # - env
+        - echo "bla"
+        - TEST_URL=${DEV_SERVER_URL}/suite-web/${CI_BUILD_REF_NAME} yarn workspace @trezor/suite-web test:performance
+        # - rsync -va test/performance/results.html "${DEPLOY_DIRECTORY}/"
+        # - lighthouse $TEST_URL \
+        #     --port=9222 \
+        #     --chrome-flags=\"--no-sandbox --headless\" \
+        #     --output=json \
+        #     --output=html
+    
+    artifacts:
+        expire_in: 2 days
+        when: always
+        paths:
+            - /builds/trezor/trezor-suite/packages/suite-web/test/performance
