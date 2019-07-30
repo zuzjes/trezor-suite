@@ -26,8 +26,8 @@ suite-web build:
     stage: build
     only:
         changes:
-            - packages/suite/**/*
-            - packages/suite-web/**/*
+            # - packages/suite/**/*
+            # - packages/suite-web/**/*
             - .gitlab-ci.yml
     variables:
         PACKAGE_NAME: suite-web
@@ -42,8 +42,8 @@ suite-web deploy dev:
     stage: deploy
     only:
         changes:
-            - packages/suite/**/*
-            - packages/suite-web/**/*
+            # - packages/suite/**/*
+            # - packages/suite-web/**/*
             - .gitlab-ci.yml
     variables:
         PACKAGE_NAME: suite-web
@@ -76,8 +76,8 @@ suite-web delete review:
     when: manual
     only:
         changes:
-            - packages/suite/**/*
-            - packages/suite-web/**/*
+            # - packages/suite/**/*
+            # - packages/suite-web/**/*
             - .gitlab-ci.yml
     environment:
         name: ${CI_BUILD_REF_NAME}
@@ -111,7 +111,7 @@ suite-web test performance:
     stage: test integration
     only:
         changes:
-            - packages/suite/**/*
+            # - packages/suite/**/*
             - packages/suite-web/**/*
             - .gitlab-ci.yml
             - ci/packages/suite-web.yml

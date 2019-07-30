@@ -46,6 +46,7 @@ run(urlToTest, {
         '--allow-insecure-localhost',
         '--headless',
         '--disable-gpu',
-        '--enable-logging'
+        '--enable-logging',
+        '--no-sandbox',
     ],
 });
