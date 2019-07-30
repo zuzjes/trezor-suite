@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+console.log('infile');
 const lighthouse = require('lighthouse/lighthouse-core');
 const chromeLauncher = require('chrome-launcher');
 const fs = require('fs');

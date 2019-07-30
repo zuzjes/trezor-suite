@@ -119,7 +119,8 @@ suite-web test performance:
         TEST_URL: ${DEV_SERVER_URL}/suite-web/${CI_BUILD_REF_NAME}
     script:
         - env
-        - TEST_URL=${DEV_SERVER_URL}/suite-web/${CI_BUILD_REF_NAME} yarn workspace @trezor/suite-web test:performance --port=9222
+        - echo "bla"
+        - TEST_URL=${DEV_SERVER_URL}/suite-web/${CI_BUILD_REF_NAME} yarn workspace @trezor/suite-web test:performance
         # - rsync -va test/performance/results.html "${DEPLOY_DIRECTORY}/"
         # - lighthouse $TEST_URL \
         #     --port=9222 \
