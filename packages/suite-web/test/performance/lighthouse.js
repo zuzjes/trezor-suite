@@ -45,5 +45,7 @@ run(urlToTest, {
         '--ignore-urlfetcher-cert-requests',
         '--allow-insecure-localhost',
         '--headless',
+        '--disable-gpu',
+        '--enable-logging'
     ],
 });
