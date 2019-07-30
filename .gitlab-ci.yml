@@ -34,14 +34,13 @@
 #     - $(yarn bin)/cypress cache list
 #     - $(yarn bin)/cypress verify
 
-# variables:
+variables:
 #   PACKAGE_PATH_COMPONENTS: 'packages/components-storybook'
 #   CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
 #   PACKAGE_PATH_SUITE_WEB: 'packages/suite-web'
 #   PACKAGE_PATH_SUITE_NATIVE: 'packages/suite-native'
 #   PACKAGE_PATH_SUITE_DESKTOP: 'packages/suite-desktop'
 #   PACKAGE_PATH_SUITE_ONBOARDING: 'packages/suite-onboarding'
-
   DEV_SERVER_URL: 'https://suite.corp.sldev.cz'
 
 # include:
