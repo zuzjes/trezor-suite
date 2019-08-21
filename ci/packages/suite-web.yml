@@ -1,17 +1,17 @@
-suite-web lint:
-    stage: lint
-    script:
-        - env
-        - yarn workspace @trezor/suite-web lint
-    dependencies:
-        - install and build
+# suite-web lint:
+#     stage: lint
+#     script:
+#         - env
+#         - yarn workspace @trezor/suite-web lint
+#     dependencies:
+#         - install and build
 
-suite-web type check:
-    stage: type check
-    script:
-        - yarn workspace @trezor/suite-web type-check
-    dependencies:
-        - install and build
+# suite-web type check:
+#     stage: type check
+#     script:
+#         - yarn workspace @trezor/suite-web type-check
+#     dependencies:
+#         - install and build
 
 suite-web build:
     stage: build
