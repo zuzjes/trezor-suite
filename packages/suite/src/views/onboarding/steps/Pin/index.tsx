@@ -7,7 +7,6 @@ import { FormattedMessage } from 'react-intl';
 
 import { resolveStaticPath } from '@suite-utils/nextjs';
 import l10nCommonMessages from '@suite-support/Messages';
-import { PIN_MANUAL_URL } from '@onboarding-constants/urls';
 import PinMatrix from '@onboarding-components/PinMatrix';
 import Text from '@onboarding-components/Text';
 import { ButtonAlt, ButtonCta } from '@onboarding-components/Buttons';
@@ -19,6 +18,7 @@ import {
 } from '@onboarding-components/Wrapper';
 import { goToNextStep } from '@onboarding-actions/onboardingActions';
 import { changePin, submitNewPin } from '@onboarding-actions/connectActions';
+import { URLS } from '@suite-constants';
 import { AppState } from '@suite-types';
 
 import l10nMessages from './index.messages';
@@ -199,7 +199,7 @@ class SetPinStep extends React.Component<Props> {
                                     {...l10nMessages.TR_PIN_ERROR_TROUBLESHOOT}
                                     values={{
                                         TR_DOCUMENTATION: (
-                                            <Link href={PIN_MANUAL_URL}>
+                                            <Link href={URLS.PIN_MANUAL_URL}>
                                                 <FormattedMessage
                                                     {...l10nMessages.TR_DOCUMENTATION}
                                                 />

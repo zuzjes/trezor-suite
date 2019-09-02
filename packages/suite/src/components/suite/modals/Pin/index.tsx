@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { Button, ButtonPin, InputPin, P, H5, Link } from '@trezor/components';
 import { TrezorDevice } from '@suite-types';
+import { URLS } from '@suite-constants';
 
 const ModalWrapper = styled.div`
     padding: 30px 45px;
@@ -78,7 +79,7 @@ const Pin: FunctionComponent<Props> = ({ device, onEnterPin }) => {
                 <Button onClick={() => onEnterPin(value)}>Enter PIN</Button>
                 <BottomMessage size="small">
                     Not sure how PIN works?{' '}
-                    <Link href="https://wiki.trezor.io/User_manual:Entering_PIN" isGreen>
+                    <Link href={URLS.PIN_MANUAL_URL} isGreen>
                         Learn more
                     </Link>
                 </BottomMessage>
