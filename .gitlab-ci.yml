@@ -44,6 +44,51 @@ install and build:
             - packages/suite-native/node_modules
             - packages/suite-storage/node_modules
 
+.components: 
+    only:
+        changes: 
+            -packages/components
+
+.components-storybook: 
+    only:
+        changes: 
+            -packages/components-storybook
+
+.suite: 
+    only:
+        changes: 
+            -packages/suite
+
+.suite-web: 
+    only:
+        changes: 
+            -packages/suite-web
+
+.suite-desktop: 
+    only:
+        changes: 
+            -packages/suite-desktop
+
+.suite-native: 
+    only:
+        changes: 
+            -packages/suite-native
+
+.blockchain-link: 
+    only:
+        changes: 
+            -packages/blockchain0link
+
+.rollout: 
+    only:
+        changes: 
+            -packages/rollout
+            
+.connect-explorer: 
+    only:
+        changes: 
+            -packages/connect-explorer
+            
 include:
     - ci/packages/components.yml
     - ci/packages/components-storybook.yml

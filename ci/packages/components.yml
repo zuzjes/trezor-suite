@@ -1,4 +1,5 @@
 components lint:
+    extends: .components
     stage: lint and prettier
     script:
         - yarn workspace @trezor/components lint
@@ -6,6 +7,7 @@ components lint:
         - install and build
 
 components type check:
+    extends: .components    
     stage: typescript type check
     script:
         - yarn workspace @trezor/components type-check
@@ -13,6 +15,7 @@ components type check:
         - install and build
 
 components test unit:
+    extends: .components    
     stage: unit testing
     script:
         - yarn workspace @trezor/components test:unit

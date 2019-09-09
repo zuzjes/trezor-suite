@@ -1,4 +1,5 @@
 blockchain-link lint:
+    extends: .blockchain-link
     stage: lint and prettier
     script:
         - yarn workspace @trezor/blockchain-link lint
@@ -6,6 +7,7 @@ blockchain-link lint:
         - install and build
 
 blockchain-link test:
+    extends: .blockchain-link
     stage: unit testing
     script:
         - yarn workspace @trezor/blockchain-link test
@@ -13,6 +15,7 @@ blockchain-link test:
         - install and build
 
 blockchain-link build:
+    extends: .blockchain-link
     stage: build
     script:
         - yarn workspace @trezor/blockchain-link build
