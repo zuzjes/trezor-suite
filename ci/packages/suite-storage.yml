@@ -1,4 +1,5 @@
 suite-storage lint:
+    extends: .suite-storage
     stage: lint
     script:
         - env
@@ -7,6 +8,7 @@ suite-storage lint:
         - install and build
 
 suite-storage type check:
+    extends: .suite-storage
     stage: type check
     script:
         - yarn workspace @trezor/suite-storage type-check

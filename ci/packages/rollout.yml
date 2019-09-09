@@ -1,4 +1,5 @@
 rollout lint:
+    extends: .rollout
     stage: lint and prettier
     script:
         - yarn workspace @trezor/rollout lint
@@ -6,6 +7,7 @@ rollout lint:
         - install and build
 
 rollout type check:
+    extends: .rollout
     stage: typescript type check
     script:
         - yarn workspace @trezor/rollout type-check
@@ -13,6 +15,7 @@ rollout type check:
         - install and build
 
 rollout test unit:
+    extends: .rollout
     stage: unit testing
     script:
         - yarn workspace @trezor/rollout test
@@ -20,6 +23,7 @@ rollout test unit:
         - install and build
 
 rollout build:
+    extends: .rollout    
     stage: build
     script:
         - yarn workspace @trezor/rollout build:lib

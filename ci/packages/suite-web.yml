@@ -1,4 +1,5 @@
 suite-web lint:
+    extends: .suite-web
     stage: lint and prettier
     script:
         - yarn workspace @trezor/suite-web lint
@@ -6,6 +7,7 @@ suite-web lint:
         - install and build
 
 suite-web type check:
+    extends: .suite-web
     stage: typescript type check
     script:
         - yarn workspace @trezor/suite-web type-check
@@ -13,6 +15,7 @@ suite-web type check:
         - install and build
 
 suite-web build:
+    extends: .suite-web
     stage: build
     script:
         - assetPrefix=/suite-web/${CI_BUILD_REF_NAME} yarn workspace @trezor/suite-web build
@@ -24,6 +27,7 @@ suite-web build:
         - install and build
 
 suite-web deploy dev:
+    extends: .suite-web
     stage: deploy to dev servers
     variables:
         DEPLOY_DIRECTORY: ${DEPLOY_BASE_DIR}/suite-web/${CI_BUILD_REF_NAME}
@@ -47,6 +51,7 @@ suite-web deploy dev:
         - deploy
 
 suite-web delete review:
+    extends: .suite-web
     stage: deploy to dev servers
     variables:
         GIT_STRATEGY: none
@@ -64,6 +69,7 @@ suite-web delete review:
         - install and build
 
 suite-web test integration:
+    extends: .suite-web
     stage: integration testing
     script:
         - npx cypress install

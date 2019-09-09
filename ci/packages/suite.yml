@@ -1,4 +1,5 @@
 suite lint:
+    extends: .suite
     stage: lint and prettier
     script:
         - yarn workspace @trezor/suite lint
@@ -6,6 +7,7 @@ suite lint:
         - install and build
 
 suite type check:
+    extends: .suite
     stage: typescript type check
     script:
         - yarn workspace @trezor/suite type-check
@@ -13,6 +15,7 @@ suite type check:
         - install and build
 
 suite test unit:
+    extends: .suite
     stage: unit testing
     script:
         - yarn workspace @trezor/suite-data copy-static-files

@@ -1,4 +1,5 @@
 suite-native lint:
+    extends: .suite-native   
     stage: lint and prettier
     script:
         - yarn workspace @trezor/suite-native lint
@@ -6,6 +7,7 @@ suite-native lint:
         - install and build
 
 suite-native type check:
+    extends: .suite-native
     stage: typescript type check
     allow_failure: true
     script:
