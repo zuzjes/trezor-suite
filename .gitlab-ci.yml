@@ -47,47 +47,64 @@ install and build:
 .components: 
     only:
         changes: 
-            - packages/components
+            - packages/components/**/*
+            - ci/**/*
+            - .gitlab-ci.yml
 
 .components-storybook: 
     only:
         changes: 
-            - packages/components-storybook
-
+            - packages/components-storybook/**/*
+            - ci/**/*
+            - .gitlab-ci.yml
 .suite: 
     only:
         changes: 
-            - packages/suite
+            - packages/suite/**/*
+            - ci/**/*
+            - .gitlab-ci.yml
 
 .suite-web: 
     only:
         changes: 
-            - packages/suite-web
+            - packages/suite-web/**/*
+            - ci/**/*
+            - .gitlab-ci.yml
 
 .suite-desktop: 
     only:
         changes: 
-            - packages/suite-desktop
+            - packages/suite-desktop/**/*
+            - ci/**/*
+            - .gitlab-ci.yml
 
 .suite-native: 
     only:
         changes: 
-            - packages/suite-native
+            - packages/suite-native/**/*
+            - ci/**/*
+            - .gitlab-ci.yml
 
 .blockchain-link: 
     only:
         changes: 
-            - packages/blockchain0link
+            - packages/blockchain-link/**/*
+            - ci/**/*
+            - .gitlab-ci.yml
 
 .rollout: 
     only:
         changes: 
-            - packages/rollout
+            - packages/rollout/**/*
+            - ci/**/*
+            - .gitlab-ci.yml
             
 .connect-explorer: 
     only:
         changes: 
-            - packages/connect-explorer
+            - packages/connect-explorer/**/*
+            - ci/**/*
+            - .gitlab-ci.yml
             
 include:
     - ci/packages/components.yml
