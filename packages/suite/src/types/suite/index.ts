@@ -110,3 +110,5 @@ export type TrezorDevice = AcquiredDevice | UnknownDevice;
 export type RequiredKey<M, K extends keyof M> = Omit<M, K> & Required<Pick<M, K>>;
 
 export type Store = ReduxStore<AppState, Action>;
+
+// added some change to suite

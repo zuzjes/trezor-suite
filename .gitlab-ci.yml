@@ -47,47 +47,47 @@ install and build:
 .components: 
     only:
         changes: 
-            -packages/components
+            - packages/components
 
 .components-storybook: 
     only:
         changes: 
-            -packages/components-storybook
+            - packages/components-storybook
 
 .suite: 
     only:
         changes: 
-            -packages/suite
+            - packages/suite
 
 .suite-web: 
     only:
         changes: 
-            -packages/suite-web
+            - packages/suite-web
 
 .suite-desktop: 
     only:
         changes: 
-            -packages/suite-desktop
+            - packages/suite-desktop
 
 .suite-native: 
     only:
         changes: 
-            -packages/suite-native
+            - packages/suite-native
 
 .blockchain-link: 
     only:
         changes: 
-            -packages/blockchain0link
+            - packages/blockchain0link
 
 .rollout: 
     only:
         changes: 
-            -packages/rollout
+            - packages/rollout
             
 .connect-explorer: 
     only:
         changes: 
-            -packages/connect-explorer
+            - packages/connect-explorer
             
 include:
     - ci/packages/components.yml
