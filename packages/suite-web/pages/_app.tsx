@@ -20,6 +20,7 @@ interface Props {
     store: Store;
 }
 
+// bla bla
 class TrezorSuiteApp extends App<Props> {
     static async getInitialProps({ Component, ctx }: AppContext): Promise<any> {
         return {
