@@ -8,6 +8,7 @@ import OnlineStatus from './components/OnlineStatus';
 import UpdateBridge from './components/UpdateBridge';
 import UpdateFirmware from './components/UpdateFirmware';
 import NoBackup from './components/NoBackup';
+import FailedBackup from './components/FailedBackUp';
 
 const mapStateToProps = (state: AppState) => ({
     suite: state.suite,
@@ -35,6 +36,7 @@ const Notifications = (props: Props & InjectedIntlProps) => (
         <NoBackup device={props.suite.device} pathname={props.router.pathname} goto={props.goto} />
         {/* TODO: add Failed backup */}
         {/* TODO: add Pin not set */}
+        <FailedBackUp device={props.suite.devxice} pathname={props.router.pathname} goto={props.goto} />
     </React.Fragment>
 );
 

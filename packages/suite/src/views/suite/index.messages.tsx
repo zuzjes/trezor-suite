@@ -104,6 +104,19 @@ const definedMessages = defineMessages({
         id: 'TR_YOUR_TREZOR_IS_NOT_BACKED_UP',
         defaultMessage: 'Your Trezor is not backed up',
     },
+    TR_BACKUP_FAILED: {
+        id: 'TR_BACKUP_FAILED',
+        defaultMessage: 'Backup failed',
+    },
+    TR_BACKUP_PROCESS_WAS_INTERRUPTED: {
+        id: 'TR_BACKUP_PROCESS_WAS_INTERRUPTED',
+        defaultMessage:
+            'The backup process was interrupted. As you do not have a complete recovery seed, please ',
+    },
+    TR_FOLLOW_THIS_GUIDE: {
+        id: 'TR_FOLLOW_THIS_GUIDE',
+        defaultMessage: 'follow this guide.',
+    },
     TR_SHOW_ADDRESS_I_WILL_TAKE_THE_RISK: {
         id: 'TR_SHOW_ADDRESS_I_WILL_TAKE_THE_RISK',
         defaultMessage: 'Show address, I will take the risk',
