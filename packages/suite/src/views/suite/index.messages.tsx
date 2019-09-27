@@ -111,7 +111,7 @@ const definedMessages = defineMessages({
     TR_BACKUP_PROCESS_WAS_INTERRUPTED: {
         id: 'TR_BACKUP_PROCESS_WAS_INTERRUPTED',
         defaultMessage:
-            'The backup process was interrupted. As you do not have a complete recovery seed, please ',
+            'The backup process was interrupted. As you do not have a complete recovery seed, please follow this guide.',
     },
     TR_FOLLOW_THIS_GUIDE: {
         id: 'TR_FOLLOW_THIS_GUIDE',
