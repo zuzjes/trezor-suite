@@ -20,7 +20,7 @@ const Wrapper = styled.div<WrapperProps>`
 const Content = styled.div`
     width: 100%;
     max-width: 1170px;
-    padding: 24px 24px 14px 24px;
+    padding: 24px 24px 24px 24px;
     display: flex;
     flex-direction: row;
     text-align: left;
@@ -37,22 +37,21 @@ const Col = styled.div`
 const Body = styled.div`
     display: flex;
     flex: 1 1 auto;
-    padding-bottom: 10px;
 `;
 
 const Message = styled.div`
     font-size: ${FONT_SIZE.SMALL};
+    padding-top: 10px;
 `;
 
 const Title = styled.div`
-    padding-bottom: 5px;
-    padding-top: 1px;
+    padding-top: 0px;
     font-weight: ${FONT_WEIGHT.MEDIUM};
 `;
 
 const CloseClick = styled.div`
     margin-left: 24px;
-    align-self: flex-start;
+    align-self: flex-center;
     cursor: pointer;
 `;
 
@@ -63,12 +62,15 @@ const StyledIcon = styled(Icon)`
 
 const IconWrapper = styled.div`
     min-width: 30px;
+    display: flex;
+    align-items: center;
 `;
 
 const Texts = styled.div`
     display: flex;
     padding: 0 10px 0 0;
     flex-direction: column;
+    justify-content: center;
 `;
 
 const AdditionalContent = styled.div`
@@ -77,7 +79,6 @@ const AdditionalContent = styled.div`
     align-items: flex-end;
     flex: 1 1 auto;
     padding-left: 30px;
-    padding-bottom: 10px;
 `;
 
 const ActionContent = styled.div`
