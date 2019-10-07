@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { InjectedIntl } from 'react-intl';
 import { CoinLogo, Icon, colors } from '@trezor/components';
 import { Output } from '@wallet-types/sendForm';
+import { Helmet } from 'react-helmet';
 
 import { getTitleForNetwork, getTypeForNetwork } from '@wallet-utils/accountUtils';
 import { StateProps, DispatchProps } from './Container';
@@ -82,74 +83,82 @@ const Send = (props: { intl: InjectedIntl } & StateProps & DispatchProps) => {
     const accountType = getTypeForNetwork(account.accountType, props.intl);
 
     return (
-        <Layout>
-            <StyledTitle>
-                <StyledCoinLogo size={24} symbol={account.symbol} />
-                Send {getTitleForNetwork(network.symbol, props.intl)}
-                {accountType ? ` (${accountType})` : ''}
-            </StyledTitle>
-            {send.outputs.map((output: Output) => (
-                <OutputWrapper key={output.id}>
-                    <SlimRow isOnlyOne={send.outputs.length === 1}>
-                        <StyledIcon
-                            onClick={() => props.sendFormActionsBitcoin.removeRecipient(output.id)}
-                            size={10}
-                            color={colors.TEXT_SECONDARY}
-                            icon="CLOSE"
-                        />
-                    </SlimRow>
-                    <Row>
-                        <Address
-                            outputId={output.id}
-                            address={output.address.value}
-                            error={output.address.error}
-                            sendFormActions={sendFormActions}
-                        />
-                    </Row>
-                    <Row>
-                        <Amount
-                            outputId={output.id}
-                            amount={output.amount.value}
-                            canSetMax={(output.amount.value || 0) >= account.availableBalance}
-                            symbol={account.symbol}
-                            error={output.amount.error}
-                            fiatValue={output.fiatValue.value}
-                            fiat={fiat}
-                            localCurrency={output.localCurrency.value}
-                            sendFormActions={sendFormActions}
-                        />
-                    </Row>
-                </OutputWrapper>
-            ))}
-            <Row>
-                <Fee
-                    feeLevels={send.feeInfo.levels}
-                    selectedFee={send.selectedFee}
-                    onChange={sendFormActions.handleFeeValueChange}
-                    symbol={network.symbol}
-                />
-            </Row>
-            <Row isColumn={send.isAdditionalFormVisible}>
-                <ButtonToggleAdditional
-                    isActive={send.isAdditionalFormVisible}
-                    sendFormActions={sendFormActions}
-                />
-                {send.isAdditionalFormVisible && (
-                    <AdditionalForm networkType={network.networkType} />
-                )}
-                <SendAndClear
-                    send={send}
-                    suite={suite}
-                    device={device}
-                    networkType={account.networkType}
-                    symbol={network.symbol}
-                    sendFormActions={sendFormActions}
-                    sendFormActionsBitcoin={sendFormActionsBitcoin}
-                    sendFormActionsEthereum={sendFormActionsEthereum}
-                    sendFormActionsRipple={sendFormActionsRipple}
-                />
-            </Row>
-        </Layout>
+        <>
+            <Helmet>
+                <title>Send</title>
+                <meta name="description" content="Helmet application" />
+            </Helmet>
+            <Layout>
+                <StyledTitle>
+                    <StyledCoinLogo size={24} symbol={account.symbol} />
+                    Send {getTitleForNetwork(network.symbol, props.intl)}
+                    {accountType ? ` (${accountType})` : ''}
+                </StyledTitle>
+                {send.outputs.map((output: Output) => (
+                    <OutputWrapper key={output.id}>
+                        <SlimRow isOnlyOne={send.outputs.length === 1}>
+                            <StyledIcon
+                                onClick={() =>
+                                    props.sendFormActionsBitcoin.removeRecipient(output.id)
+                                }
+                                size={10}
+                                color={colors.TEXT_SECONDARY}
+                                icon="CLOSE"
+                            />
+                        </SlimRow>
+                        <Row>
+                            <Address
+                                outputId={output.id}
+                                address={output.address.value}
+                                error={output.address.error}
+                                sendFormActions={sendFormActions}
+                            />
+                        </Row>
+                        <Row>
+                            <Amount
+                                outputId={output.id}
+                                amount={output.amount.value}
+                                canSetMax={(output.amount.value || 0) >= account.availableBalance}
+                                symbol={account.symbol}
+                                error={output.amount.error}
+                                fiatValue={output.fiatValue.value}
+                                fiat={fiat}
+                                localCurrency={output.localCurrency.value}
+                                sendFormActions={sendFormActions}
+                            />
+                        </Row>
+                    </OutputWrapper>
+                ))}
+                <Row>
+                    <Fee
+                        feeLevels={send.feeInfo.levels}
+                        selectedFee={send.selectedFee}
+                        onChange={sendFormActions.handleFeeValueChange}
+                        symbol={network.symbol}
+                    />
+                </Row>
+                <Row isColumn={send.isAdditionalFormVisible}>
+                    <ButtonToggleAdditional
+                        isActive={send.isAdditionalFormVisible}
+                        sendFormActions={sendFormActions}
+                    />
+                    {send.isAdditionalFormVisible && (
+                        <AdditionalForm networkType={network.networkType} />
+                    )}
+                    <SendAndClear
+                        send={send}
+                        suite={suite}
+                        device={device}
+                        networkType={account.networkType}
+                        symbol={network.symbol}
+                        sendFormActions={sendFormActions}
+                        sendFormActionsBitcoin={sendFormActionsBitcoin}
+                        sendFormActionsEthereum={sendFormActionsEthereum}
+                        sendFormActionsRipple={sendFormActionsRipple}
+                    />
+                </Row>
+            </Layout>
+        </>
     );
 };
 

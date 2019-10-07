@@ -1,6 +1,8 @@
 import React from 'react';
 import Content from '@wallet-components/Content';
 import LayoutAccount from '@wallet-components/LayoutAccount';
+import { Helmet } from 'react-helmet';
+
 import AccountHeader from './components/AccountHeader';
 import Tokens from './components/Tokens';
 import { Props } from './Container';
@@ -18,21 +20,27 @@ const AccountSummary = (props: Props) => {
     }
 
     return (
-        <LayoutAccount>
-            <AccountHeader
-                account={account}
-                network={network}
-                fiatRates={props.fiat}
-                localCurrency={props.wallet.settings.localCurrency}
-                isHidden={props.wallet.settings.hideBalance}
-            />
-            {account.networkType === 'ethereum' && (
-                <Tokens
-                    tokens={account.tokens || []}
-                    hideBalance={props.wallet.settings.hideBalance}
+        <>
+            <Helmet>
+                <title>Summary</title>
+                <meta name="description" content="Helmet application" />
+            </Helmet>
+            <LayoutAccount>
+                <AccountHeader
+                    account={account}
+                    network={network}
+                    fiatRates={props.fiat}
+                    localCurrency={props.wallet.settings.localCurrency}
+                    isHidden={props.wallet.settings.hideBalance}
                 />
-            )}
-        </LayoutAccount>
+                {account.networkType === 'ethereum' && (
+                    <Tokens
+                        tokens={account.tokens || []}
+                        hideBalance={props.wallet.settings.hideBalance}
+                    />
+                )}
+            </LayoutAccount>
+        </>
     );
 };
 

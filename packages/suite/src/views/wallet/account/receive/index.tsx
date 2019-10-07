@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { FormattedMessage, injectIntl, InjectedIntl } from 'react-intl';
+import { Helmet } from 'react-helmet';
 
 import LayoutAccount from '@wallet-components/LayoutAccount';
 import Content from '@wallet-components/Content';
@@ -67,25 +68,31 @@ const AccountReceive = (props: Props) => {
         props.locks.includes(SUITE.LOCK_TYPE.DEVICE) || props.locks.includes(SUITE.LOCK_TYPE.UI);
 
     return (
-        <LayoutAccount>
-            <ReceiveForm
-                showButtonDisabled={showButtonDisabled}
-                account={account}
-                device={device}
-                showAddress={props.showAddress}
-                isAddressPartiallyHidden={isAddressPartiallyHidden}
-                getAddressReceiveInfo={getAddressReceiveInfo}
-                networkType={network.networkType}
-                title={
-                    <FormattedMessage
-                        {...l10nMessages.TR_RECEIVE_NETWORK}
-                        values={{
-                            network: getTitleForNetwork(account.symbol, intl),
-                        }}
-                    />
-                }
-            />
-        </LayoutAccount>
+        <>
+            <Helmet>
+                <title>Receive</title>
+                <meta name="description" content="Helmet application" />
+            </Helmet>
+            <LayoutAccount>
+                <ReceiveForm
+                    showButtonDisabled={showButtonDisabled}
+                    account={account}
+                    device={device}
+                    showAddress={props.showAddress}
+                    isAddressPartiallyHidden={isAddressPartiallyHidden}
+                    getAddressReceiveInfo={getAddressReceiveInfo}
+                    networkType={network.networkType}
+                    title={
+                        <FormattedMessage
+                            {...l10nMessages.TR_RECEIVE_NETWORK}
+                            values={{
+                                network: getTitleForNetwork(account.symbol, intl),
+                            }}
+                        />
+                    }
+                />
+            </LayoutAccount>
+        </>
     );
 };
 
