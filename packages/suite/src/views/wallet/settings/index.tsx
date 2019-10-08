@@ -4,6 +4,7 @@ import { FormattedMessage, InjectedIntlProps } from 'react-intl';
 import { Switch, Select, Button, Tooltip, Icon, colors, variables } from '@trezor/components';
 import l10nCommonMessages from '@suite-views/index.messages';
 import WalletLayout from '@wallet-components/WalletLayout';
+import Head from 'next/head';
 import { FIAT } from '@suite-config';
 import { NETWORKS } from '@wallet-config';
 import Coins from './components/Coins';
@@ -77,69 +78,76 @@ const buildCurrencyOption = (currency: string) => {
 };
 
 const WalletSettings = (props: Props & InjectedIntlProps) => (
-    <WalletLayout>
-        <CloseWrapper>
-            <Button onClick={() => props.goto('wallet-index')} isTransparent>
-                <Icon icon="CLOSE" size={14} />
-            </Button>
-        </CloseWrapper>
-        <Section>
-            <LabelTop>
-                <FormattedMessage {...l10nMessages.TR_LOCAL_CURRENCY} />
-            </LabelTop>
-            <CurrencySelect
-                isSearchable
-                isClearable={false}
-                onChange={(option: { value: string; label: string }) =>
-                    props.setLocalCurrency(option.value)
-                }
-                value={buildCurrencyOption(props.wallet.settings.localCurrency)}
-                options={FIAT.currencies.map(c => buildCurrencyOption(c))}
-            />
-        </Section>
-        <Section>
-            <Row>
-                <Label>
-                    <FormattedMessage {...l10nCommonMessages.TR_HIDE_BALANCE} />
-                    <Tooltip
-                        content={<FormattedMessage {...l10nMessages.TR_HIDE_BALANCE_EXPLAINED} />}
-                        maxWidth={210}
-                        placement="right"
-                    >
-                        <TooltipIcon icon="HELP" color={colors.TEXT_SECONDARY} size={12} />
-                    </Tooltip>
-                </Label>
-                <Switch
-                    isSmall
-                    checkedIcon={false}
-                    uncheckedIcon={false}
-                    onChange={checked => {
-                        props.setHideBalance(checked);
-                    }}
-                    checked={props.wallet.settings.hideBalance}
-                />
-            </Row>
-        </Section>
-        <Section>
-            <Coins
-                networks={NETWORKS}
-                changeCoinVisibility={props.changeCoinVisibility}
-                toggleGroupCoinsVisibility={props.toggleGroupCoinsVisibility}
-                enabledNetworks={props.wallet.settings.enabledNetworks}
-                externalNetworks={props.wallet.settings.enabledExternalNetworks}
-            />
-        </Section>
-        <Actions>
-            <Info>
-                <FormattedMessage {...l10nMessages.TR_THE_CHANGES_ARE_SAVED} />
-            </Info>
-            <Buttons>
-                <Button onClick={() => props.goto('wallet-index')}>
-                    <FormattedMessage {...l10nCommonMessages.TR_CLOSE} />
+    <>
+        <Head>
+            <title>Trezor - Settings</title>
+        </Head>
+        <WalletLayout>
+            <CloseWrapper>
+                <Button onClick={() => props.goto('wallet-index')} isTransparent>
+                    <Icon icon="CLOSE" size={14} />
                 </Button>
-            </Buttons>
-        </Actions>
-    </WalletLayout>
+            </CloseWrapper>
+            <Section>
+                <LabelTop>
+                    <FormattedMessage {...l10nMessages.TR_LOCAL_CURRENCY} />
+                </LabelTop>
+                <CurrencySelect
+                    isSearchable
+                    isClearable={false}
+                    onChange={(option: { value: string; label: string }) =>
+                        props.setLocalCurrency(option.value)
+                    }
+                    value={buildCurrencyOption(props.wallet.settings.localCurrency)}
+                    options={FIAT.currencies.map(c => buildCurrencyOption(c))}
+                />
+            </Section>
+            <Section>
+                <Row>
+                    <Label>
+                        <FormattedMessage {...l10nCommonMessages.TR_HIDE_BALANCE} />
+                        <Tooltip
+                            content={
+                                <FormattedMessage {...l10nMessages.TR_HIDE_BALANCE_EXPLAINED} />
+                            }
+                            maxWidth={210}
+                            placement="right"
+                        >
+                            <TooltipIcon icon="HELP" color={colors.TEXT_SECONDARY} size={12} />
+                        </Tooltip>
+                    </Label>
+                    <Switch
+                        isSmall
+                        checkedIcon={false}
+                        uncheckedIcon={false}
+                        onChange={checked => {
+                            props.setHideBalance(checked);
+                        }}
+                        checked={props.wallet.settings.hideBalance}
+                    />
+                </Row>
+            </Section>
+            <Section>
+                <Coins
+                    networks={NETWORKS}
+                    changeCoinVisibility={props.changeCoinVisibility}
+                    toggleGroupCoinsVisibility={props.toggleGroupCoinsVisibility}
+                    enabledNetworks={props.wallet.settings.enabledNetworks}
+                    externalNetworks={props.wallet.settings.enabledExternalNetworks}
+                />
+            </Section>
+            <Actions>
+                <Info>
+                    <FormattedMessage {...l10nMessages.TR_THE_CHANGES_ARE_SAVED} />
+                </Info>
+                <Buttons>
+                    <Button onClick={() => props.goto('wallet-index')}>
+                        <FormattedMessage {...l10nCommonMessages.TR_CLOSE} />
+                    </Button>
+                </Buttons>
+            </Actions>
+        </WalletLayout>
+    </>
 );
 
 export default WalletSettings;
