@@ -8,6 +8,7 @@ import WalletLayout from '@wallet-components/WalletLayout';
 import { FormattedMessage } from 'react-intl';
 import l10nCommonMessages from '@wallet-views/messages';
 import { getRoute } from '@suite/utils/suite/router';
+import Head from 'next/head';
 import { NETWORKS, EXTERNAL_NETWORKS } from '@wallet-config';
 import { AppState } from '@suite-types';
 import l10nMessages from './index.messages';
@@ -73,50 +74,57 @@ const Dashboard = (props: Props) => {
     };
 
     return (
-        <WalletLayout>
-            <Content>
-                <Row data-test="Dashboard__page__content">
-                    <StyledH4>
-                        {isEmpty() && (
-                            <FormattedMessage
-                                {...l10nMessages.TR_PLEASE_SELECT_YOUR_EMPTY}
-                                values={{
-                                    TR_SELECT_COINS_LINK: (
-                                        <Link href={getRoute('wallet-settings')}>
-                                            <FormattedMessage
-                                                {...l10nCommonMessages.TR_SELECT_COINS_LINK}
-                                            />
-                                        </Link>
-                                    ),
-                                }}
-                            />
-                        )}
-                        {!isEmpty() && <FormattedMessage {...l10nMessages.TR_PLEASE_SELECT_YOUR} />}
-                    </StyledH4>
-                    <StyledP>
-                        <FormattedMessage {...l10nMessages.TR_YOU_WILL_GAIN_ACCESS} />
-                    </StyledP>
-                    <Coins>
-                        {NETWORKS.filter(
-                            item =>
-                                !item.isHidden &&
-                                props.settings.enabledNetworks.includes(item.symbol),
-                        ).map(network => (
-                            <StyledLink
-                                key={`${network.name}-${network.symbol}`}
-                                href={getRoute('wallet-account-summary', {
-                                    symbol: network.symbol,
-                                    accountIndex: 0,
-                                    accountType: network.accountType || 'normal',
-                                })}
-                            >
-                                <StyledCoinLogo symbol={network.symbol} size={27} />
-                            </StyledLink>
-                        ))}
-                    </Coins>
-                </Row>
-            </Content>
-        </WalletLayout>
+        <>
+            <Head>
+                <title>Trezor</title>
+            </Head>
+            <WalletLayout>
+                <Content>
+                    <Row data-test="Dashboard__page__content">
+                        <StyledH4>
+                            {isEmpty() && (
+                                <FormattedMessage
+                                    {...l10nMessages.TR_PLEASE_SELECT_YOUR_EMPTY}
+                                    values={{
+                                        TR_SELECT_COINS_LINK: (
+                                            <Link href={getRoute('wallet-settings')}>
+                                                <FormattedMessage
+                                                    {...l10nCommonMessages.TR_SELECT_COINS_LINK}
+                                                />
+                                            </Link>
+                                        ),
+                                    }}
+                                />
+                            )}
+                            {!isEmpty() && (
+                                <FormattedMessage {...l10nMessages.TR_PLEASE_SELECT_YOUR} />
+                            )}
+                        </StyledH4>
+                        <StyledP>
+                            <FormattedMessage {...l10nMessages.TR_YOU_WILL_GAIN_ACCESS} />
+                        </StyledP>
+                        <Coins>
+                            {NETWORKS.filter(
+                                item =>
+                                    !item.isHidden &&
+                                    props.settings.enabledNetworks.includes(item.symbol),
+                            ).map(network => (
+                                <StyledLink
+                                    key={`${network.name}-${network.symbol}`}
+                                    href={getRoute('wallet-account-summary', {
+                                        symbol: network.symbol,
+                                        accountIndex: 0,
+                                        accountType: network.accountType || 'normal',
+                                    })}
+                                >
+                                    <StyledCoinLogo symbol={network.symbol} size={27} />
+                                </StyledLink>
+                            ))}
+                        </Coins>
+                    </Row>
+                </Content>
+            </WalletLayout>
+        </>
     );
 };
 
