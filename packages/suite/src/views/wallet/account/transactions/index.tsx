@@ -9,9 +9,9 @@ import LayoutAccount from '@wallet-components/LayoutAccount';
 import Title from '@wallet-components/Title';
 import Content from '@wallet-components/Content';
 import { getAccountTransactions } from '@suite-utils/reducerUtils';
+import Head from 'next/head';
 import { SETTINGS } from '@suite-config';
 import { AppState, Dispatch } from '@suite-types';
-import { Helmet } from 'react-helmet';
 
 import TransactionList from './components/TransactionList';
 import l10nMessages from './index.messages';
@@ -59,10 +59,9 @@ const Transactions = (props: Props) => {
 
     return (
         <>
-            <Helmet>
-                <title>Transaction</title>
-                <meta name="description" content="Helmet application" />
-            </Helmet>
+            <Head>
+                <title>Trezor - Transaction</title>
+            </Head>
             <LayoutAccount>
                 <Title>
                     <FormattedMessage {...l10nMessages.TR_TRANSACTIONS} />

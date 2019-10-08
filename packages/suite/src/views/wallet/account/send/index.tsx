@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { InjectedIntl } from 'react-intl';
 import { CoinLogo, Icon, colors } from '@trezor/components';
 import { Output } from '@wallet-types/sendForm';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 
 import { getTitleForNetwork, getTypeForNetwork } from '@wallet-utils/accountUtils';
 import { StateProps, DispatchProps } from './Container';
@@ -84,10 +84,9 @@ const Send = (props: { intl: InjectedIntl } & StateProps & DispatchProps) => {
 
     return (
         <>
-            <Helmet>
-                <title>Send</title>
-                <meta name="description" content="Helmet application" />
-            </Helmet>
+            <Head>
+                <title>Trezor - Send</title>
+            </Head>
             <Layout>
                 <StyledTitle>
                     <StyledCoinLogo size={24} symbol={account.symbol} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import Content from '@wallet-components/Content';
 import LayoutAccount from '@wallet-components/LayoutAccount';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 
 import AccountHeader from './components/AccountHeader';
 import Tokens from './components/Tokens';
@@ -21,10 +21,9 @@ const AccountSummary = (props: Props) => {
 
     return (
         <>
-            <Helmet>
-                <title>Summary</title>
-                <meta name="description" content="Helmet application" />
-            </Helmet>
+            <Head>
+                <title>Trezor - Summary</title>
+            </Head>
             <LayoutAccount>
                 <AccountHeader
                     account={account}

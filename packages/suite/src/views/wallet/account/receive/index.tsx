@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { FormattedMessage, injectIntl, InjectedIntl } from 'react-intl';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 
 import LayoutAccount from '@wallet-components/LayoutAccount';
 import Content from '@wallet-components/Content';
@@ -69,10 +69,9 @@ const AccountReceive = (props: Props) => {
 
     return (
         <>
-            <Helmet>
-                <title>Receive</title>
-                <meta name="description" content="Helmet application" />
-            </Helmet>
+            <Head>
+                <title>Trezor - Receive</title>
+            </Head>
             <LayoutAccount>
                 <ReceiveForm
                     showButtonDisabled={showButtonDisabled}

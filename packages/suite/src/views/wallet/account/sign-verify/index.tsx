@@ -5,7 +5,7 @@ import Title from '@wallet-components/Title';
 import LayoutAccount from '@wallet-components/LayoutAccount';
 import * as signVerifyActions from '@wallet-actions/signVerifyActions';
 import { FormattedMessage, InjectedIntl } from 'react-intl';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 
 import l10nCommonMessages from '@wallet-views/messages';
 import l10nMessages from './index.messages';
@@ -115,10 +115,9 @@ class SignVerify extends Component<Props> {
         const verifyAddressError = this.getError('verifyAddress');
         return (
             <>
-                <Helmet>
-                    <title>Sign&Verify</title>
-                    <meta name="description" content="Helmet application" />
-                </Helmet>
+                <Head>
+                    <title>Trezor - Sign & Verify</title>
+                </Head>
                 <LayoutAccount>
                     <Wrapper>
                         <Sign>
